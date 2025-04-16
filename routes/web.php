@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Auth\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,5 +69,13 @@ Route::middleware('auth')->group(function () {
     });
 
 });
-
 require __DIR__.'/auth.php';
+
+        // Admin Route
+        Route::prefix('admin')->group(function(){
+            Route::get('/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
+            Route::post('/login', [AdminController::class, 'login']);
+            Route::post('/login', [AdminController::class, 'logout'])->name('admin.logout');
+        });
+
+

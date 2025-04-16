@@ -40,6 +40,28 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'admin'=>[
+            'driver'=>'session',
+            'provider'=>'admins'
+        ],
+
+        'customer'=>[
+            'driver'=>'session',
+            'provider'=>'customers'
+        ],
+
+        'manager'=>[
+            'driver'=>'session',
+            'provider'=>'managers'
+        ],
+
+        'api' => [
+        'driver' => 'token',
+        'provider' => 'users',
+        'hash' => false,
+    ],
+
     ],
 
     /*
@@ -65,10 +87,18 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+      'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+        'customers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\customer::class,
+        ],
+        'managers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\manager::class,
+        ],
     ],
 
     /*
