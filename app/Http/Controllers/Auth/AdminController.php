@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
 
-	public function __construct(){
-		$this->middleware('guest:admin')->expect('logout');
-	}
+	 public function __construct()
+    {
+        $this->middleware('guest:admin')->except('logout');
+    }
 
     public function showLoginForm(){
     	return view('auth.admin-login');
