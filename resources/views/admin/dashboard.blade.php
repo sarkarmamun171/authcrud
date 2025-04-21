@@ -1,21 +1,23 @@
-@extends('Backend.partials.index')
-div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Admin Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in as Admin!') }}
-                </div>
-            </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+</head>
+<body>
+    <h2>Admin Login</h2>
+    <form action="{{ route('admin.login') }}" method="POST">
+        @csrf
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
         </div>
-    </div>
-</div>
-@endsection
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</body>
+</html>

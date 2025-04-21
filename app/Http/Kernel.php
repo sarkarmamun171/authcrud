@@ -69,5 +69,5 @@ class Kernel extends HttpKernel
     protected $routeMiddleware =[
 
             'guest:admin' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-    ]
+    ];
 }
